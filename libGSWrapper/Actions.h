@@ -40,7 +40,7 @@
 @interface AbstractAction : NSObject <Action>
 {
     NSString *actionName;
-    NSDictionary *properties;
+    NSDictionary *gsProperties;
 }
 
 - (id)initWithActionName: (NSString *)name

@@ -19,23 +19,14 @@
 
 include $(GNUSTEP_MAKEFILES)/common.make
 
-include ../Directories.make
-
-GNUSTEP_INSTALLATION_DIR=$(GNUSTEP_SYSTEM_ROOT)
-
-OBJC_PROGRAM_NAME=GSWrapper_Launcher
+TOOL_NAME=GSWrapper_Launcher
 
 GSWrapper_Launcher_OBJC_FILES=main.m
 
 GSWrapper_Launcher_OBJC_LIBS += -lGSWrapper -lgnustep-base -lgnustep-gui
 GSWrapper_Launcher_INCLUDE_DIRS += -I../libGSWrapper
-GSWrapper_Launcher_LIB_DIRS += -L../libGSWrapper/$(OBJ_DIR)
-
-GSWrapper_Launcher_COPY_INTO_LOCAL_BUNDLE = ../$(APP_DIR)/Resources/$(ARCH_DIR)
+GSWrapper_Launcher_LIB_DIRS += -L../libGSWrapper/obj
 
 -include GNUmakefile.preamble
-ifeq ($(GSWrapper_Development),yes)
-include ../GNUmakefile.development
-endif
-include $(GNUSTEP_MAKEFILES)/objc.make
+include $(GNUSTEP_MAKEFILES)/tool.make
 -include GNUmakefile.postamble

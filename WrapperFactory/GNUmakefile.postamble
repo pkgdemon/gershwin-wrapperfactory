@@ -18,4 +18,4 @@
 # $HeadURL: file:///home/rherzog/Subversion/GNUstep/GSWrapper/tags/release-0.1.0/WrapperFactory/GNUmakefile.postamble $
 
 after-all::
-	cp -u ../Launcher/$(OBJ_DIR)/GSWrapper_Launcher $(APP_DIR)/Resources/
+	cp ../Launcher/obj/GSWrapper_Launcher WrapperFactory.app/Resources/

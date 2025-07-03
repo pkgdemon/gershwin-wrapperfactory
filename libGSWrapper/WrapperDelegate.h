@@ -32,7 +32,7 @@
     BOOL appDidFinishLaunching;
 
     NSArray *startupFiles;
-    NSDictionary *properties;
+    NSDictionary *gsProperties;
 
     id<Action> mainAction;
     id<Action> openAction;

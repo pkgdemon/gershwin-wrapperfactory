@@ -21,20 +21,23 @@ include $(GNUSTEP_MAKEFILES)/common.make
 
 include Directories.make
 
-GNUSTEP_INSTALLATION_DIR = $(GNUSTEP_SYSTEM_ROOT)
-
-PACKAGE_NAME=GNUstepWrapper
+PACKAGE_NAME = GNUstepWrapper
 include Version
 
 GNUSTEP_INSTALLATION_DIR = $(GNUSTEP_SYSTEM_ROOT)
 
-#$(GNUSTEP_TARGET_CPU)/$(GNUSTEP_TARGET_OS)/$(LIBRARY_COMBO)/GSWrapper_Launcher
-
+# Ensure subprojects build in dependency-safe order:
 SUBPROJECTS = libGSWrapper Launcher WrapperFactory
+
+# Ensure Launcher can find libGSWrapper during build:
+ADDITIONAL_LIB_DIRS += ./libGSWrapper/obj
+ADDITIONAL_OBJC_LIBS += GSWrapper
 
 -include GNUmakefile.preamble
 ifeq ($(GSWrapper_Development),yes)
 -include GNUmakefile.development
 endif
+
 include $(GNUSTEP_MAKEFILES)/aggregate.make
+
 -include GNUmakefile.postamble

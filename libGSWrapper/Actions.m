@@ -33,7 +33,7 @@
     self = [self init];
     if ( self ) {
         actionName = RETAIN(name);
-        properties = RETAIN(props);
+        gsProperties = RETAIN(props);
     }
     return self;
 }
@@ -62,7 +62,7 @@
 
 - (NSDictionary *)properties
 {
-    return properties;
+    return gsProperties;
 }
 
 @end

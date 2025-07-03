@@ -19,17 +19,21 @@
 # $Id: Directories.make 103 2004-08-09 16:30:51Z rherzog $
 # $HeadURL: file:///home/rherzog/Subversion/GNUstep/GSWrapper/tags/release-0.1.0/Directories.make $
 
+# Install in the USER domain for safe development testing
+GNUSTEP_INSTALLATION_DIR = $(GNUSTEP_USER_ROOT)
+
+# Enforce strict warnings and freedesktop behavior
+OBJCFLAGS += -Werror -DFREEDESKTOP
+
+# Build directories for debug vs. release
 ifeq ($(debug),yes)
-APP_DIR=WrapperFactory.debug
-OBJ_BASE_DIR=shared_debug_obj
+  APP_DIR = WrapperFactory.debug
+  OBJ_BASE_DIR = shared_debug_obj
 else
-APP_DIR=WrapperFactory.app
-OBJ_BASE_DIR=shared_obj
+  APP_DIR = WrapperFactory.app
+  OBJ_BASE_DIR = shared_obj
 endif
 
-ARCH_DIR=$(GNUSTEP_TARGET_CPU)/$(GNUSTEP_TARGET_OS)/$(LIBRARY_COMBO)
-ifneq ($(GNUSTEP_FLATTENED),yes)
-OBJ_DIR=$(OBJ_BASE_DIR)/$(ARCH_DIR)
-else
-OBJ_DIR=$(OBJ_BASE_DIR)
-endif
+# Architecture-specific object directory
+ARCH_DIR = $(GNUSTEP_TARGET_CPU)/$(GNUSTEP_TARGET_OS)/$(LIBRARY_COMBO)
+OBJ_DIR = $(OBJ_BASE_DIR)

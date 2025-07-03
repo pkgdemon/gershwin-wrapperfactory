@@ -87,6 +87,7 @@ static NSString *actionIgnore = @"Ignore";
     TEST_RELEASE(script);
     TEST_RELEASE(executable);
     TEST_RELEASE(executablePath);
+    [super dealloc];
 }
 
 - (void)setFlattened: (BOOL)f
@@ -229,6 +230,7 @@ static NSString *actionIgnore = @"Ignore";
 - (void)dealloc
 {
     RELEASE(types);
+    [super dealloc];
 }
 
 - (BOOL)loadFileWrapperRepresentation: (NSFileWrapper *)file
@@ -1010,7 +1012,7 @@ static NSString *actionIgnore = @"Ignore";
 - (BOOL)loadFreedesktopApplication: (NSFileWrapper *)file
 {
     if ( ![file isRegularFile] ) {
-        NSLog(@"%@ is not a regular file");
+        NSLog(@"%@ is not a regular file", [file filename]);
         return NO;
     }
 

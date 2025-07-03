@@ -48,7 +48,7 @@
 
     NSString *path = [[NSBundle mainBundle] pathForResource: @"GSWrapper"
                                             ofType: @"plist"];
-    properties = RETAIN([NSDictionary dictionaryWithContentsOfFile: path]);
+    gsProperties = RETAIN([NSDictionary dictionaryWithContentsOfFile: path]);
 
     if ( startupFiles ) {
         mainAction = [self actionForMessage: @"StartOpen"];
@@ -144,7 +144,7 @@
 
 - (id<Action>)actionForMessage: (NSString *)msg
 {
-    NSDictionary *actionProps = [properties objectForKey: msg];
+    NSDictionary *actionProps = [gsProperties objectForKey: msg];
     if ( !actionProps ) {
         actionProps = AUTORELEASE([[NSDictionary alloc] init]);
     }

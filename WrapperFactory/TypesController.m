@@ -59,6 +59,7 @@ static NSString *NameColumnId = @"NameColumn";
 - (void)dealloc
 {
     TEST_RELEASE(emptyBox);
+    [super dealloc];
 }
 
 - (void)awakeFromNib
@@ -267,7 +268,7 @@ sortDescriptorsDidChange: (NSArray *)sortDescriptors
         [typeEditor setContentView: typeEditorContents];
         [typeEditor setTitlePosition: typeEditorTitlePosition];
         [typeEditor setBorderType: typeEditorBorderType];
-        ASSIGN(typeEditorContents, nil);
+        typeEditorContents = nil;
     }
 }
 

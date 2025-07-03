@@ -49,7 +49,7 @@
     IBOutlet NSTextField *authors;
     IBOutlet NSPopUpButton *rolePopUp;
 
-    IBOutlet int currentScriptId;
+    int currentScriptId;
     IBOutlet NSTextField *currentScriptShell;
     IBOutlet NSTextView *currentScript;
     IBOutlet NSPopUpButton *currentScriptActionPopUp;
