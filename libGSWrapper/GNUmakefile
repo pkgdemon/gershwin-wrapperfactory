@@ -29,7 +29,7 @@ libGSWrapper_OBJC_FILES = WrapperDelegate.m \
 	NSApplication+SuppressAppIcon.m \
 	NSApplication+AppName.m \
 
-libGSWrapper_LIBRARIES_DEPEND_UPON = -lgnustep-base -lgnustep-gui
+libGSWrapper_LIBRARIES_DEPEND_UPON += $(FND_LIBS) $(GUI_LIBS) $(OBJC_LIBS) $(SYSTEM_LIBS)
 
 ifeq ($(GSWrapper_Development),yes)
 include ../GNUmakefile.development

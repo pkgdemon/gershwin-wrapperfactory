@@ -29,10 +29,6 @@ GNUSTEP_INSTALLATION_DIR = $(GNUSTEP_SYSTEM_ROOT)
 # Ensure subprojects build in dependency-safe order:
 SUBPROJECTS = libGSWrapper Launcher WrapperFactory
 
-# Ensure Launcher can find libGSWrapper during build:
-ADDITIONAL_LIB_DIRS += ./libGSWrapper/obj
-ADDITIONAL_OBJC_LIBS += GSWrapper
-
 -include GNUmakefile.preamble
 ifeq ($(GSWrapper_Development),yes)
 -include GNUmakefile.development
